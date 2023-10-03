@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador de Votos</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .voting-container {
+            text-align: center;
+        }
+
+        button {
+            margin: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        p {
+            font-size: 24px;
+            margin: 10px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="voting-container">
+        <button onclick="voteUp()">Votar a favor</button>
+        <button onclick="voteDown()">Votar en contra</button>
+        <p id="vote-count">0</p>
+    </div>
+
+    <script>
+        let voteCount = 0;
+
+        function updateVoteCount() {
+            const voteCountElement = document.getElementById('vote-count');
+            voteCountElement.textContent = voteCount;
+        }
+
+        function voteUp() {
+            voteCount++;
+            updateVoteCount();
+        }
+
+        function voteDown() {
+            voteCount--;
+            updateVoteCount();
+        }
+
+        // Inicializa el conteo de votos
+        updateVoteCount();
+    </script>
+</body>
+</html>
